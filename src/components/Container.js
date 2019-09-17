@@ -5,24 +5,28 @@ import * as actions from '../actions';
 import CharacterList from './CharacterList';
 
 function Container(props) {
-  const { fetchChar } = props.action;
   const {
     characters
   } = props;
 
   useEffect(() => {
+    const { fetchChar } = props.action;
     fetchChar()
-  },[])
+  },[props.action])
   
+  const onClickPrevious = () => console.log('prev')
+  const onClickNext = () => console.log('next')
   return (
     <div>
       <h1>SWAPI</h1>
       <CharacterList characters={characters} />
+      <button onClick={onClickPrevious}>previous</button>
+      <button onClick={onClickNext}>next</button>
     </div>
   );
 }
 
-const mapStateToProps = (state, prop) => {
+const mapStateToProps = (state) => {
   return {
     characters: state.characters
   }

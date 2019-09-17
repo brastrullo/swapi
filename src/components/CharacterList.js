@@ -8,10 +8,22 @@ function CharacterList(props) {
   const displayList = (list = []) =>
     list.map((char, i) => (
       <li key={`${i}`}>
-        <p>{ char.name }</p>
-        <p>{ char.birth_year }</p>
-        <p>{ char.height }</p>
-        <p>{ char.mass }</p>
+        <p>
+          <label>Name: </label>
+          <span>{char.name}</span>
+        </p>
+        <p>
+          <label>Birth Year: </label>
+          <span>{char.birth_year}</span>
+        </p>
+        <p>
+          <label>Height: </label>
+          <span>{char.height} cm</span>
+        </p>
+        <p>
+          <label>Mass: </label>
+          <span>{char.mass} kg</span>
+        </p>
       </li>
     ));
   
