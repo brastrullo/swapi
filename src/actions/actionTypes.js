@@ -1,1 +1,5 @@
 export const GET_CHARACTERS = 'GET_CHARACTERS';
+export const CURRENT_PAGE = 'CURRENT_PAGE';
+export const PREVIOUS_PAGE = 'PREVIOUS_PAGE';
+export const NEXT_PAGE = 'NEXT_PAGE';
+export const STORE_NEXT_PAGE = 'STORE_NEXT_PAGE';

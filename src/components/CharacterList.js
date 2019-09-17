@@ -6,24 +6,35 @@ function CharacterList(props) {
   } = props;
   console.log(characters);
   const displayList = (list = []) =>
-    list.map((char, i) => (
+    list.map((data, i) => (
       <li key={`${i}`}>
-        <p>
-          <label>Name: </label>
-          <span>{char.name}</span>
-        </p>
-        <p>
-          <label>Birth Year: </label>
-          <span>{char.birth_year}</span>
-        </p>
-        <p>
-          <label>Height: </label>
-          <span>{char.height} cm</span>
-        </p>
-        <p>
-          <label>Mass: </label>
-          <span>{char.mass} kg</span>
-        </p>
+        { data.type === 'person' ? (
+          <>
+            <p>
+              <label>Name: </label>
+              <span>{data.name}</span>
+            </p>
+            <p>
+              <label>Birth Year: </label>
+              <span>{data.birth_year}</span>
+            </p>
+            <p>
+              <label>Height: </label>
+              <span>{data.height} cm</span>
+            </p>
+            <p>
+              <label>Mass: </label>
+              <span>{data.mass} kg</span>
+            </p>
+          </>
+        ) : (
+          <p>
+            <b>
+              <label>Starship Name: </label>
+              <span>{data.name} </span>
+            </b>
+          </p>
+        )}
       </li>
     ));
   

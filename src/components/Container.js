@@ -5,22 +5,23 @@ import * as actions from '../actions';
 import CharacterList from './CharacterList';
 
 function Container(props) {
+  const { nextPage, previousPage } = props.action;
   const {
+    page,
     characters
   } = props;
-
   useEffect(() => {
-    const { fetchChar } = props.action;
-    fetchChar()
+    const { fetchChars } = props.action;
+    fetchChars()
   },[props.action])
   
-  const onClickPrevious = () => console.log('prev')
-  const onClickNext = () => console.log('next')
+  const onClickPrevious = () => previousPage()
+  const onClickNext = () => nextPage()
   return (
     <div>
       <h1>SWAPI</h1>
       <CharacterList characters={characters} />
-      <button onClick={onClickPrevious}>previous</button>
+      <button onClick={onClickPrevious} disabled={page === 1}>previous</button>
       <button onClick={onClickNext}>next</button>
     </div>
   );
@@ -28,7 +29,8 @@ function Container(props) {
 
 const mapStateToProps = (state) => {
   return {
-    characters: state.characters
+    characters: state.characters,
+    page: state.page
   }
 }
 
