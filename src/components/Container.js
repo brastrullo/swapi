@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
 import CharacterList from './CharacterList';
 
 function Container(props) {
+  const { fetchChar } = props.action;
   const {
     characters
   } = props;
-  console.log(props);
+
+  useEffect(() => {
+    fetchChar()
+  },[])
+  
   return (
     <div>
       <h1>SWAPI</h1>

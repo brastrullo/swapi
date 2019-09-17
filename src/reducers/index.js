@@ -1,13 +1,12 @@
 import * as types from '../actions/actionTypes';
 import { combineReducers } from 'redux';
 
-export const characters = (state = [
-  { char: 'Luke' },
-  { char: 'Chewy' },
-], action) => {
+
+
+export const characters = (state = [], action) => {
   switch(action.type) {
-    case types.FETCH_CHARACTERS:
-      return [];
+    case types.GET_CHARACTERS:
+      return action.payload;
     default:
       return state;
   }
